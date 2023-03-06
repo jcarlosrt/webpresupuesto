@@ -1,0 +1,13 @@
+1- 1- un numero de presupuesto por evento
+
+
+
+  sub de presupuesto, rut, fecha de presupuesto, fecha probable de hosp, nombre, telefono, email,
+   tipo hops(hosp y ambu), todod lo cod clini y fns mas descipcion
+   prevision, medico, rut (no requerido) y especialidad, datos ejetutiva, fecha de evento,
+
+
+   cruce con base datos hospitalizado
+
+   que aparesca fecha probable hopitalizacion y levante alerta con correo electronico los sin gestiony que esten cerca
+   de la fecha de hospilalizacion

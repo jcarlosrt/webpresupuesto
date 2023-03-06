@@ -1,0 +1,12 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+    <h1>Clientes Presupuesto</h1>
+    {% if object_list %}
+        {% for c in object_list %}
+            {{ c.id }}
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

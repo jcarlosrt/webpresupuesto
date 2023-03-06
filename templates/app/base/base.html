@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>{% block title%}
+
+    {% endblock %}</title>
+</head>
+<body>
+{% block header %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" async="" src="https://script.4dex.io/localstore.js"></script>
+    <link rel="stylesheet" type="text" href={% static 'css/form_basic.css' %}">
+
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(0,154,150);>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">PresuWeb</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../..">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clientes">Clientes</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Presupuesto
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Presupuesto Generales</a></li>
+                        <li><a class="dropdown-item" href="/paquetes">paquetes</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Plasticas</a></li>
+                        <li><a class="dropdown-item" href="#">Ambulatorios</a></li>
+                        <li><a class="dropdown-item" href="#">Pabellones por Tiempo</a></li>
+                    </ul>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+
+        </div>
+    </div>
+    </nav>
+{% endblock %}
+
+{% block contenido %}
+
+    contenido
+
+{% endblock %}
+
+
+
+</body>
+{% block footer %}
+
+    {% include 'global/inferior.html' %}
+
+{% endblock %}
+
+</html>

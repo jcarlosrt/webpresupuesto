@@ -1,0 +1,62 @@
+{% extends "app/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+
+
+    <h2 style="text-align:center">Requerimientos pendientes</h2>
+    <div class="row">
+
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-8">
+            <div class="table-responsive" width="100%">
+                <table class="table table-striped">
+                    <h3>Lista pendientes</h3>
+                    <h4>Cantidad pendientes {{ cantidad }}</h4>
+                    <div class="card"></div>
+                    <thead>
+                    <tr>
+                        <th>Nro</th>
+                        <th>Ticket</th>
+                        <th>Nombre del Paciente</th>
+                        <th>RUT</th>
+                        <th>Telefono</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Fecha Prob Cirugia</th>
+                        <th>Intervencion</th>
+                        <th>Prevision</th>
+                        <th>Fecha Prob Cirugia</th>
+                        <th>Opcion</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for c in object_list %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td> {{ c.id }} </td>
+                            <td> {{ c.Nombre }} </td>
+                            <td> {{ c.RUT }} </td>
+                            <td> {{ c.Telefono_movil}} </td>
+                            <td> {{ c.StartedOn }} </td>
+                            <td> {{ c.Fecha_probable_de_Hospitalizacion }} </td>
+                            <td> {{ c.Nombre_de_la_intervencion }} </td>
+                            <td> {{ c.Isapre}} </td>
+                            <td> {{ c.Fecha_probable_de_Hospitalizacion }} </td>
+                            <td><a href="/gestion_reque/{{ c.id }}" class=" btn btn-info">Revisar</a></td>
+
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+            {% include 'app/paginator.html' %}
+        </div>
+
+    </div>
+
+
+{% endblock %}

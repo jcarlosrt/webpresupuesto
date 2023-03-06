@@ -1,0 +1,47 @@
+{% extends "app/layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+
+    <h2 style="text-align:center">Requerimientos pendientes</h2>
+    <div class="row">
+        <div class ="col-sm-12 col-md-6 col-lg-8col-xl-4">
+            <h2>Gestion Presupuesto Online</h2>
+            <h4 class="txt_negrita">Datos Solicitud: </h4>
+            {% for c in id_cliente %}
+
+                <p><span class="txt_negrita">Ticket: {{ c.id }} </span> <br> </p>
+                <p><span class="txt_negrita">Nombre :{{ c.Nombre }} </span> <br> </p>
+                <p><span class="txt_negrita">RUT {{ c.RUT }}</span> <br> </p>
+                <p><span class="txt_negrita">Tipo Intervencion : {{ c.Nombre_de_la_intervencion}}</span> <br> <img class="img-fluid"> </p>
+                <p><span class="txt_negrita">Fecha probable cirugia: {{ c.Fecha_probable_de_Hospitalizacion }}</span> <br></p>
+                <p><span class="txt_negrita">Actualizado h:{{ c.texto_evento}}</span> <br></p>
+
+
+            <!-- Botón para volver a la vista principal (Home) -->
+            <a href="/seguiweb/editar_requeri/{{ c.id }}" type="submit" class="btn btn-primary">Editar</a>
+            <a href="/seguiweb/eventos/{{ c.id }}" type="submit" class=" btn btn-info">Evento</a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-8">
+            <div class="table-responsive">
+               <h3>Orden Medica</h3>
+                <embed width=100% height="600px" src="{{ c.Adjuntar_orden_medica }}/Brochure.pdf type="application/pdf" />
+                <a href={{ c.Adjuntar_orden_medica }} target="_blank" rel="noopener noreferrer" class="btn btn-primary" name="OM" >Abrir Orden Medica</a>
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

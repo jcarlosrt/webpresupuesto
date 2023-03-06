@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>{% block title %}Presupuesto Web
+
+    {% endblock %}</title>
+</head>
+<body>
+{% block header %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" async="" src="https://script.4dex.io/localstore.js"></script>
+    <link rel="stylesheet" type="text" href={% static 'css/form_basic.css' %}">
+
+
+    <nav class=" navbar navbar-expand-lg" style="background-color: rgb(0,154,150);>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">PresuWeb</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Seguimientos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'ingreso_presu' %}">Ingreso de Presupuesto</a></li>
+                        <li><a class="dropdown-item" href="{% url 'requirementos' %}">requerimientos</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a </a></li>
+                        <li><a </a></li>
+                    </ul>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+            {% include 'app/loginpartial.html' %}
+        </div>
+    </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    contenido
+
+{% endblock %}
+
+
+</body>
+{% block footer %}
+
+    {% include 'global/inferior.html' %}
+
+{% endblock %}
+
+</div>
+
+<script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+<script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+<script src="{% static 'app/scripts/respond.js' %}"></script>
+{% block scripts %}
+
+
+{% endblock %}
+
+</html>

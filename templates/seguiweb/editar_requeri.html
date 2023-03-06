@@ -1,0 +1,134 @@
+{% extends "app/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+
+<h2 style="text-align:center">Edicion de Requerimiento</h2>
+<div class="row">
+    <div class ="col-sm-12 col-md-6 col-lg-8col-xl-4">
+        <h2> Se esta editando el Ticket {{ object.id }}</h2>
+        <h4 class="txt_negrita">Datos Solicitud: </h4>
+
+
+        <p><span class="txt_negrita">Ticket: {{ object.id }} </span> <br> </p>
+
+        <table>
+
+            <form class="row g-3" method=post>
+                {% csrf_token %}
+                <div class="col-md-4">
+                    <label class="form-label">Nombres</label>
+                    <input type="text" class="form-control" value={{ object.Nombre }} name="Nombre" >
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Apellido Paterno</label>
+                    <input type="text" class="form-control" value={{ object.Apellido_Paterno}} name="Apellido_Paterno" >
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Apellido Materno</label>
+                    <input type="text" class="form-control" value={{ object.Apellido_Materno}} name="Apellido_Materno" >
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Celular</label>
+                    <input type="text" class="form-control" name="Telefono_movil" value={{ object.Telefono_movil}} placeholder="+56 9 8765 4321">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Correo electronico</label>
+                    <input type="email" class="form-control" name="Email_de_contacto" value={{ object.Email_de_contacto}} placeholder="correo@correo.com">
+                </div>
+                <div class="col-md-5">
+                    <label class="form-label">Prevision</label>
+                    <select name="Isapre"  class="form-select" >
+                        <option value={{ object.Isapre }} selected>{{ object.Isapre }}</option>
+                        <option value="FONASA">FONASA</option>
+                        <option value="Banmédica S.A.">Banmédica S.A.</option>
+                        <option value="CTC - Istel S.A.">CTC - Istel S.A.</option>
+                        <option value="Chuquicamata Ltda">Chuquicamata Ltda</option>
+                        <option value="Colmena Golden Cross S.A.">Colmena Golden Cross S.A.</option>
+                        <option value="Consalud S.A.">Consalud S.A.</option>
+                        <option value="Cruz del Norte Ltda">Cruz del Norte Ltda</option>
+                        <option value="F.A.S.T. del Banco del Estado">Fundacion</option>
+                        <option value="Fundación de Salud El Teniente">Fundación de Salud El Teniente</option>
+                        <option value="Isapre CruzBlanca S.A.">Isapre CruzBlanca S.A.</option>
+                        <option value="Normédica S.A.">Normédica S.A.</option>
+                        <option value="Nueva Masvida'">Nueva Masvida'</option>
+                        <option value="Particular">Particular</option>
+                        <option value="Promepart Isapre'">Promepart Isapre'</option>
+                        <option value="Río Blanco Ltda.">Río Blanco Ltda.</option>
+                        <option value="San Lorenzo Ltda.">San Lorenzo Ltda</option>
+                        <option value="Sfera S.A.">Sfera S.A.</option>
+                        <option value="Vida Plena S.A.">Vida Plena S.A.</option>
+                        <option value="Vida Tres S.A.">Vida Tres S.A.</option>
+                        <option value="Otra">Otra</option>
+
+
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Procedencia</label>
+                    <select name="Procedencia"  class="form-select" >
+                        <option value={{ object.Procedencia }} selected>{{ object.Procedencia }}</option>
+                        <option value="OFICINA">OFICINA</option>
+                        <option value="ORDEN MEDICA ELECTRONICA">ORDEN MEDICA ELECTRONICA</option>
+                        <option value="Online">Online</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+    </div>
+
+    </table>
+
+
+
+    <div class="col-md-11">
+        <div class="container-fluid">
+            <h1>Datos Presupuesto</h1>
+            <div class="col-md-4">
+                <label class="form-label">Cod. Intervencion</label>
+                <input type="text" class="form-control" value={{ object.Codigo_de_intervencion}} name="Codigo_de_intervencion" >
+
+            </div>
+            <div class="col-md-10">
+                <label class="form-label">Nombre de la Intervencion</label>
+                <input type="text" class="form-control" value={{ object.Nombre_de_la_intervencion}} name="Nombre_de_la_intervencion" >
+            </div>
+            <div class="col-md-10">
+                <label class="form-label">Medico Tratante</label>
+                <input type="text" class="form-control" value={{ object.Medico_tratante}} name="Medico_tratante" >
+            </div>
+            <div class="col-md-10">
+                <label class="form-label">Fecha de intervencion</label>
+                <input type="date" class="form-control" value={{ object.Fecha_probable_de_Hospitalizacion}} name="Fecha_probable_de_Hospitalizacion" >
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-6 col-lg-4 col-xl-8">
+    <div class="table-responsive">
+        <h3>Orden Medica</h3>
+        <embed width=100% height="600px" src="{{ object.Adjuntar_orden_medica }}/Brochure.pdf type="application/pdf" />
+        <a href={{ object.Adjuntar_orden_medica }} target="_blank" rel="noopener noreferrer" class="btn btn-primary" name="OM" >Abrir Orden Medica</a>
+
+
+    </div>
+
+
+
+</div>
+
+</div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="cancel" class="btn btn-danger" href="gestion_reque">Cancelar</button>
+</form>
+
+
+{% endblock %}
+

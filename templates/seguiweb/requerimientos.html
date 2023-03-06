@@ -1,0 +1,75 @@
+{% extends "app/layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+
+
+    <h2 style="text-align:center">{{ title }}</h2>
+
+
+
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <h3>Lista pendientes</h3>
+                <h4>Cantidad pendientes {{ cantidad }} </h4>
+
+              <thead>
+                  <tr>
+                      <th>Ticket</th>
+                      <th>Procedencia</th>
+                      <th>Nombre del Paciente   </th>
+                      <th>RUT</th>
+                      <th>Telefono</th>
+                      <th>Fecha Ingreso</th>
+                      <th>Fecha Prob Cirugia</th>
+                      <th>Intervencion</th>
+                      <th>Prevision</th>
+                      <th>Pre. enviado</th>
+                      <th>Estado</th>
+                      <th>Opcion</th>
+
+                  </tr>
+              </thead>
+                <tbody>
+                {% if object_list %}
+                {% for c in object_list %}
+                    <tr>
+                        <td> {{ c.id }} </td>
+                        <td> {{ c.Procedencia }}</td>
+                        <td> {{ c.Nombre }} </td>
+                        <td> {{ c.RUT }} </td>
+                        <td> {{ c.Telefono_movil}} </td>
+                        <td> {{ c.StartedOn }} </td>
+                        <td> {{ c.Fecha_probable_de_Hospitalizacion }} </td>
+                        <td> {{ c.Nombre_de_la_intervencion }} </td>
+                        <td> {{ c.Isapre}} </td>
+                        <td> {% if c.envio_presu == False %}
+                            NO
+                            {% else %}
+                            SI
+                            {% endif %}
+                        </td>
+                        <td> {{ c.Estado_requerimiento }}</td>
+                        <td><a href="/seguiweb/gestion_reque/{{ c.id }}" class=" btn btn-info">Revisar</a></td>
+
+                    </tr>
+                {% endfor %}
+                {% else %}
+                <h1>No hay requerimientos pendientes</h1>
+                {% endif %}
+
+                </tbody>
+
+            </table>
+        </div>
+        {% include 'seguiweb/paginator.html' %}
+    </div>
+
+
+
+
+{% endblock %}
